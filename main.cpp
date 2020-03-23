@@ -3,24 +3,6 @@
 #include "display_tools.h"
 
 
-void inversa(Matrix mprin, Matrix &minversa){
-  Matrix mcof, mtrans;
-
-  float deter = determinant(mprin);
-  if (deter==0){
-    exit(EXIT_FAILURE);
-
-  }
-  else {
-  float det = (1/deter);
-
-  cofactors(mprin, mcof);
-  transpose(mcof, mtrans);
-
-  productRealMatrix(det, mtrans, minversa);
-  }
-}
-
 int main(void) {
 
 Matrix mprin, minversa;

@@ -110,3 +110,22 @@ void transpose(Matrix M, Matrix &T){
         for(int j=0;j<M.at(0).size();j++)
             T.at(j).at(i) = M.at(i).at(j);
 }
+
+
+void inversa(Matrix mprin, Matrix &minversa){
+  Matrix mcof, mtrans;
+
+  float deter = determinant(mprin);
+  if (deter==0){
+    exit(EXIT_FAILURE);
+
+  }
+  else {
+  float det = (1/deter);
+
+  cofactors(mprin, mcof);
+  transpose(mcof, mtrans);
+
+  productRealMatrix(det, mtrans, minversa);
+  }
+}
